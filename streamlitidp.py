@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import plotly.express as px
 import plotly.graph_objects as go
+import pycountry
 
 # ==============================
 # CONFIGURAÇÃO INICIAL
@@ -38,7 +39,7 @@ df_saldo['taxa_migra'] = pd.to_numeric(df_saldo["taxa_migra"]) / 100
 
 # Exibição direta
 st.subheader("Saldo migratório brasileiro (Censo 2022)")
-st.dataframe(df_saldo)
+st.dataframe(df_saldo, hide_index=True)
 
 st.write ("Santa Catarina é o caso mais emblemático. O estado registrou um saldo migratório positivo de 354 mil pessoas, o equivalente a quase 5% da população atual, o maior do país. Em segundo lugar vêm Goiás (+186 mil) e Mato Grosso (+103 mil), impulsionados pela expansão do agronegócio e da construção civil. A Paraíba aparece como exceção nordestina com saldo positivo (+30 mil), enquanto o Rio de Janeiro (-165 mil) e o Distrito Federal (-99 mil) estão entre os que mais perderam moradores.")
 st.write ("Aqui entra aspas de especialista 1: demógrafo ou geógrafo especializado em mobilidade populacional, por exemplo, José Eustáquio Diniz Alves ou Tânia Lago, explicando o que motiva o saldo migratório interno, o papel da economia regional e a fuga de grandes centros caros.")
@@ -73,8 +74,7 @@ caminho_pop = os.path.join(pasta, "pop_migrantes.csv")
 df_pop = pd.read_csv(caminho_pop)
 
 st.subheader("Estados que mais receberam migrantes e suas origens")
-st.dataframe(df_pop)
-
+st.dataframe(df_pop, hide_index=True)
 
 st.write("Se antes a migração brasileira tinha um destino óbvio, São Paulo, agora as rotas se multiplicam. Os dados do IBGE mostram que Santa Catarina e Paraná formam um “novo eixo migratório”, atraindo moradores de 13 estados diferentes, do Acre ao Pará, de Sergipe a Roraima.")
 st.write("O fenômeno tem razões práticas e simbólicas: segurança pública, empregos industriais e uma narrativa de prosperidade que circula nas redes e nas conversas. Cidades como Itajaí, Joinville e Florianópolis viraram o ideal de “vida estável”, principalmente para famílias jovens.")
@@ -193,9 +193,23 @@ with st.expander("❓ Não entendeu a matriz? Clique aqui para mais detalhes:"):
     st.write("- **Valores absolutos**: População total que migrou entre as regiões")
 
 
-st.subheader ("O Brasil que fica e o que chega")
-st.write ("INSERIR TABELA COM OS IMIGRANTES POR NACIONALIDADE")
+st.header("O Brasil que fica e o que chega: Imigrantes por nacionalidade")
 st.write ("Enquanto o país se movimenta internamente, estrangeiros também voltaram a escolher o Brasil.Depois de décadas de retração migratória, o número de imigrantes e naturalizados quase dobrou entre 2010 e 2022, saltando de 592 mil para mais de 1 milhão.")
+# Caminho do arquivo Excel
+caminho = r"D:\Github\TCC IDP\imigrantes.xlsx"
+
+# Ler os dados
+df_imigr = pd.read_excel(caminho)
+df_imigr.columns = [str(col).strip() for col in df_imigr.columns]
+
+# Remover linha de total
+df_imigr = df_imigr[~df_imigr["País/Região"].str.contains("Total", case=False, na=False)]
+
+# Exibir DataFrame ordenado por 2022
+df_imigr = df_imigr[["País/Região", "2010", "2022"]].sort_values("2022", ascending=False)
+
+st.dataframe(df_imigr, hide_index=True)
+
 st.write ("Mas o perfil mudou completamente: menos europeus e asiáticos, mais latino-americanos e africanos. A América Latina e o Caribe são hoje o epicentro da nova imigração, representando 64% de todos os estrangeiros no país. A Venezuela lidera o ranking: de 2.869 pessoas em 2010 para 271 mil em 2022, um aumento de mais de 9.000%. Em seguida vêm Haiti, Bolívia, Colômbia e Paraguai.")
 st.write ("(Aqui entra aspas de especialista 2: sociólogo ou antropólogo especializado em migração internacional, por exemplo, Rosana Baeninger ou João Carlos Jarochinski Silva, explicando o novo perfil das comunidades estrangeiras no Brasil, a Operação Acolhida e a integração desses grupos.")
 st.write ("O refúgio humanitário substituiu o antigo modelo de imigração de trabalho. Venezuelanos, haitianos e colombianos chegam em busca de proteção, estudo e recomeço, concentrando-se em cidades do Norte e Sudeste. Enquanto isso, portugueses, italianos e espanhóis reduziram presença: a imigração europeia caiu 23% no período, e muitos se naturalizaram ou retornaram a seus países de origem.")
