@@ -196,7 +196,7 @@ with st.expander("❓ Não entendeu a matriz? Clique aqui para mais detalhes:"):
 st.header("O Brasil que fica e o que chega: Imigrantes por nacionalidade")
 st.write ("Enquanto o país se movimenta internamente, estrangeiros também voltaram a escolher o Brasil.Depois de décadas de retração migratória, o número de imigrantes e naturalizados quase dobrou entre 2010 e 2022, saltando de 592 mil para mais de 1 milhão.")
 # Caminho do arquivo Excel
-caminho = r"D:\Github\TCC IDP\imigrantes.xlsx"
+caminho = "imigrantes.xlsx"
 
 # Ler os dados
 df_imigr = pd.read_excel(caminho)
