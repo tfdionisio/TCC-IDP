@@ -45,6 +45,7 @@ nomes_estados = {
     "TO": "Tocantins"
 }
 
+st.write("Por Kelly Ribeiro, Renata Nalim e Thiago Dionisio")
 
 # Título e subtítulo da página
 st.title("As novas fronteiras do Brasil em movimento")
@@ -80,7 +81,7 @@ fig = px.bar(
     orientation="h",
     color="saldo_migratorio",
     color_continuous_scale=["red", "white", "green"],
-    title="Saldo migratório por estado (Censo 2022)",
+    title="Mapa do saldo migratório por estado",
     labels={"estado_nome": "Estado", "saldo_migratorio": "Saldo migratório"},
     text="saldo_formatado"
 )
