@@ -81,7 +81,7 @@ fig = px.bar(
     orientation="h",
     color="saldo_migratorio",
     color_continuous_scale=["red", "white", "green"],
-    title="Mapa do saldo migratório por estado",
+    title="Gráfico em colunas com o saldo migratório dos estados",
     labels={"estado_nome": "Estado", "saldo_migratorio": "Saldo migratório"},
     text="saldo_formatado"
 )
@@ -446,3 +446,4 @@ st.write("O Brasil voltou a receber estrangeiros, em especial latino-americanos,
 
 
 ## Para visualizar no navegador: "streamlit run streamlitidp.py" no terminal
+
