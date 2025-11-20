@@ -415,11 +415,6 @@ st.plotly_chart(fig_imigr, use_container_width=True)
 
 st.write("Conforme indicado no gráfico, o perfil migratório passou por uma mudança significativa: observa-se redução no contingente de europeus e asiáticos e um crescimento expressivo no número de latino-americanos e africanos.")
 st.write("A América Latina e o Haiti são hoje o epicentro da nova imigração, e juntos representam 64% de todos os estrangeiros no país. No entanto, a  Venezuela lidera o ranking: saltou de 2 mil 869 pessoas em 2010 para 271 mil em 2022, um aumento de mais de 9.000%. Em seguida estão  Haiti, Bolívia, Colômbia e Paraguai.")
-caminho_imagemwisnel = os.path.join(pasta, "wisnel.png")
-
-st.image(caminho_imagemwisnel,
-         caption="Wisnel Joseph ao lado de Laís Menenguello, antropóloga e co-host do podcast O Haiti é também aqui. - Foto: Reprodução")
-
 st.write("‘’Esses países vivem crises econômicas severas. O Brasil, por contraste, mantém fronteiras acessíveis e não adota práticas de deportação em massa, o que fortalece ainda mais sua atratividade. O Brasil se tornou um dos poucos destinos acessíveis, legalizados e com acolhimento humanitário. Isso explica o salto gigantesco desse fluxo’’,  explica o sociólogo, Caio Felipe.")
 st.write("O refúgio humanitário substituiu o antigo modelo de imigração baseada no  trabalho. Venezuelanos e haitianos chegam em busca de proteção, estudo e recomeço, concentrando-se em cidades das regiões Norte e Sudeste.")
 st.write("No caso  venezuelano, a migração coincide com a crescente instabilidade política ocasionada pelo governo de Nicolás Maduro e, por consequência, pela hiperinflação, escassez de alimentos, falta de medicamentos e de produtos básicos.")
@@ -429,6 +424,12 @@ st.write("Enquanto isso, portugueses, italianos e espanhóis reduziram sua prese
 st.subheader("As dificuldades de quem decide permanecer")
 st.write("Entre aqueles que escolheram o Brasil como novo lar está o haitiano Wisnel Joseph, apresentador do podcast O Haiti também é aqui. Ele chegou ao país em 2018 para cursar o mestrado em sua área e defendeu sua dissertação em fevereiro de 2020, pouco antes da pandemia de Covid-19. Desde então, decidiu permanecer.")
 st.write("Sua trajetória, no entanto, se soma à de outros conterrâneos que enfrentam dificuldades para ingressar no mercado de trabalho, mesmo com formação superior. Muitos haitianos e haitianas acabam exercendo funções de baixa remuneração, apesar de seus títulos de graduação e pós-graduação, pela dificuldade de conseguir vagas compatíveis com sua especialização.")
+
+caminho_imagemwisnel = os.path.join(pasta, "wisnel.png")
+
+st.image(caminho_imagemwisnel,
+         caption="Wisnel Joseph ao lado de Laís Menenguello, antropóloga e co-host do podcast O Haiti é também aqui. - Foto: Reprodução")
+
 st.write("O apresentador também enfrentou esse impasse. Depois de concluir o mestrado na Universidade Federal de Mato Grosso, não conseguiu colocação na própria área e precisou recorrer a uma rede de apoio formada por haitianos no Brasil, um coletivo que auxiliava conterrâneos na busca por moradia, trabalho e condições de vida dignas.")
 st.write("Agora, vivendo ao lado da esposa e do filho recém nascido no país, a rotina finalmente ganhou estabilidade. “A vida por aqui tem sido tranquila. Estou feliz por ter a oportunidade de continuar meus estudos. No momento, estou focado em concluir o doutorado”, afirma à reportagem. Wisnel pesquisa a reterritorialização de haitianos no país.")
 st.write("Mesmo com resultados ainda preliminares, os dados do Censo Demográfico 2022 deixam claro que a migração brasileira já não segue uma única direção nem se limita às trajetórias históricas conhecidas. Os deslocamentos se espalham por diferentes regiões, redesenhando a geografia humana do país e apontando tendências essenciais para a formulação de políticas públicas, planejamento urbano e compreensão das transformações sociais que moldam o Brasil contemporâneo.")
