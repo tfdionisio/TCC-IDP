@@ -185,9 +185,9 @@ st.write ("Com o objetivo de facilitar a consulta, os dados foram organizados em
 # HUB COM SELEÇÃO DE MUNICÍPIOS
 # ==============================
 
-caminho_municipios = r"D:\Github\TCC IDP\municipios.xlsx"
+caminho_municipios = os.path.join(pasta, "municipios.xlsx")
 
-st.markdown("**Consule a população migrante por município e Unidade Federativa**:")
+st.markdown("**Consulte a população migrante por município e Unidade Federativa**:")
 
 def formatar_brasileiro(numero):
     return f"{numero:,}".replace(",", ".")
